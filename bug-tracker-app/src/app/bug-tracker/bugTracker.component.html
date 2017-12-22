@@ -2,17 +2,17 @@
 	<bug-stats [data]="bugs"></bug-stats>
 	<section class="sort">
 		<label for="">Order By :</label>
-		<select [(ngModel)]="sortBugBy">
+		<select (change)="sortBugBy = $event.target.value">
 			<option value="name">Name</option>
 			<option value="isClosed">Status</option>
 		</select>
 		<label for="">Descending ? :</label>
-		<input type="checkbox" [(ngModel)]="sortByDescending" >
+		<input type="checkbox" (change)="sortByDescending = $event.target.checked" >
 	</section>
 	<section class="edit">
 		<label for="">Bug Name :</label>
-		<input type="text" #txtBugName>
-		<input type="button" value="Create New" (click)="onCreateNewClick(txtBugName.value)">
+		<input type="text" [(ngModel)]="newBugName">
+		<input type="button" value="Create New" (click)="onCreateNewClick()">
 	</section>
 	<section class="list">
 		<ol>

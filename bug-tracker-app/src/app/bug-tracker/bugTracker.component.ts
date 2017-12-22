@@ -12,14 +12,15 @@ export class BugTrackerComponent{
 
 	sortBugBy : string ;
 	sortByDescending :  boolean = false;
-	
+	newBugName : string= '';
+
 	constructor(private bugOperations : BugOperationsService){
 		
 	}
 
-	onCreateNewClick(newBugName : string){
-		let newBug = this.bugOperations.createNew(newBugName);
-		this.bugs.push(newBug);
+	onCreateNewClick(){
+		let newBug = this.bugOperations.createNew(this.newBugName);
+		this.bugs = [...this.bugs, newBug];
 	}
 
 	onBugClick(bug : IBug){
