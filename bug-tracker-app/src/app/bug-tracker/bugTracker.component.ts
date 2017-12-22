@@ -10,7 +10,7 @@ import { BugOperationsService  } from './services/bugOperations.service';
 export class BugTrackerComponent{
 	bugs : IBug[] = [];
 
-	sortBugBy : string ;
+	sortBugBy : string = 'name';
 	sortByDescending :  boolean = false;
 	newBugName : string= '';
 
