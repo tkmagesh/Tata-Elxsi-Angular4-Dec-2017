@@ -10,12 +10,9 @@ import { BugOperationsService  } from './services/bugOperations.service';
 export class BugTrackerComponent{
 	bugs : IBug[] = [];
 
-	/*bugOperations : BugOperationsService;
-
-	constructor(_bugOperations : BugOperationsService){
-		this.bugOperations = _bugOperations;
-	}*/
-
+	sortBugBy : string ;
+	sortByDescending :  boolean = false;
+	
 	constructor(private bugOperations : BugOperationsService){
 		
 	}
