@@ -20,7 +20,7 @@
 				<span 
 					(click)="onBugClick(bug)"
 					[ngClass]="{closed : bug.isClosed, bugname : true}"
-				>{{bug.name}}</span>
+				>{{bug.name | trimText}}</span>
 				<div class="datetime">[Created At]</div>
 			</li>
 			
