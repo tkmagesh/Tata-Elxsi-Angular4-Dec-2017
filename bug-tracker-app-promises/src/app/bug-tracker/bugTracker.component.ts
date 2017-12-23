@@ -13,7 +13,7 @@ console.log(moment('23-Dec-2017 10:23:01 AM').fromNow());
 	selector : 'bug-tracker',
 	templateUrl : 'bugTracker.component.html'
 })
-export class BugTrackerComponent implements OnInit{
+/*export class BugTrackerComponent implements OnInit{
 	bugs : IBug[] = [];
 
 	sortBugBy : string = 'name';
@@ -39,6 +39,41 @@ export class BugTrackerComponent implements OnInit{
 		this.bugServer
 			.toggle(bugToToggle)
 			.then(toggledBug => this.bugs = this.bugs.map(bug => bug.id === bugToToggle.id ? toggledBug : bug));
+		
+	}
+
+	onRemoveClosedClick(){
+		this.bugs
+			.filter(bug => bug.isClosed)
+			.forEach(closedBug => this.bugServer.remove(closedBug))
+		this.bugs = this.bugs.filter(bug => !bug.isClosed);
+	}
+	
+}*/
+export class BugTrackerComponent implements OnInit{
+	bugs : IBug[] = [];
+
+	sortBugBy : string = 'name';
+	sortByDescending :  boolean = false;
+	
+
+	async ngOnInit(){
+		this.bugs = await this.bugServer.getAll();
+
+
+	}
+
+	constructor(private bugServer : BugServerService, private bugStorage : BugStorageService){
+		
+	}
+
+	onNewBugCreated(newBug : IBug){
+		this.bugs = [...this.bugs, newBug];
+	}
+	
+	async onBugClick(bugToToggle : IBug){
+		let toggledBug = await this.bugServer.toggle(bugToToggle)
+		this.bugs = this.bugs.map(bug => bug.id === bugToToggle.id ? toggledBug : bug);
 		
 	}
 
