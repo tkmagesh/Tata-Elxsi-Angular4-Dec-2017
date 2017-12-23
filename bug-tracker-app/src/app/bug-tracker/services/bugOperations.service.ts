@@ -1,10 +1,12 @@
 import { IBug } from '../models/IBug';
 
 export class BugOperationsService{
-	createNew(newBugName : string) : IBug {
+	createNew(newBugName : string, id : number = 0) : IBug {
 		let newBug : IBug = {
+			id : id,
 			name : newBugName,
-			isClosed : false
+			isClosed : false,
+			createdAt : new Date()
 		};
 		return newBug;
 	}
