@@ -3,9 +3,6 @@ import { IBug } from './models/IBug';
 import { BugServerService  } from './services/bugServer.service';
 
 
-
-
-
 @Component({
 	selector : 'bug-tracker',
 	templateUrl : 'bugTracker.component.html'

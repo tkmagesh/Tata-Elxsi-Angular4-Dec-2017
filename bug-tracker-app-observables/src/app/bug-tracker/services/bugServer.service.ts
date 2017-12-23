@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 
-
 @Injectable()
 export class BugServerService{
 	private serviceUrl : string = 'http://localhost:3000/bugs';
