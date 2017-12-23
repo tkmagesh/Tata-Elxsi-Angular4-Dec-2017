@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { IBug } from './models/IBug';
 import { BugStorageService  } from './services/bugStorage.service';
 
+import * as moment from 'moment';
+
+console.log(moment);
+console.log(moment('23-Dec-2017 10:23:01 AM').fromNow());
 
 @Component({
 	selector : 'bug-tracker',
@@ -17,7 +21,7 @@ export class BugTrackerComponent implements OnInit{
 	ngOnInit(){
 		this.bugs = this.bugStorage.getAll();
 	}
-	
+
 	constructor(private bugStorage : BugStorageService){
 		
 	}
