@@ -7,6 +7,7 @@ import { UtilsModule } from './utils/utils.module';
 import { AppComponent } from './app.component';
 import { BugTrackerComponent } from './bug-tracker/bugTracker.component';
 import { BugStatsComponent } from './bug-tracker/views/bugStats.compnent';
+import { BugEditComponent } from './bug-tracker/views/bugEdit.component';
 
 import { BugOperationsService } from './bug-tracker/services/bugOperations.service';
 import { BugStorageService } from './bug-tracker/services/bugStorage.service';
@@ -18,6 +19,7 @@ import { ClosedCountPipe } from './bug-tracker/pipes/closedCount.pipe';
   declarations: [
     AppComponent,
     BugTrackerComponent,
+    BugEditComponent,
     BugStatsComponent,
     ClosedCountPipe,
   ],
